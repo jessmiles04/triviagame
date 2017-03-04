@@ -55,6 +55,8 @@ var question1=0;
 function triviaStart(){
 	$("#answers").hide();
 	$("#endScreen").hide();	
+	$("#loki").hide()
+	$("#deadpool").hide()
 	$("#Start").on("click", function(){
 	triviaQuestion(question1);
 
@@ -66,6 +68,8 @@ function triviaQuestion(){
     			$("#question").hide();
     			$("#answers").hide();
     			$("#Start").hide();
+				$("#loki").hide();
+				$("#deadpool").hide();
 	        	$("#endScreen").show();
 		    }
 
@@ -73,6 +77,8 @@ function triviaQuestion(){
 	$("#Start").hide();
 	$("#endScreen").hide();
 	$("#answers").show();
+	$("#loki").hide()
+	$("#deadpool").hide();
 	resetTime();
     		}
 
@@ -88,6 +94,7 @@ function triviaQuestion(){
    function checkAnswers() {
         var userGuess = $(this).html();
             if (userGuess == trivia[question1].correctAnswer) {
+            	$("#loki").show(3000).hide(0);
             correct++;
             question1++;
             console.log("Got it");
@@ -96,6 +103,7 @@ function triviaQuestion(){
 	        }
 
          else {
+         	$("#deadpool").show(3000).hide(0);
             wrong++;
             question1++;
             $('#wrong').html("Wrong Answers: " + wrong);
